@@ -1,15 +1,20 @@
 from fastapi import APIRouter, Request
 
+from app.services.message_processor import MessageProcessor
+
 router = APIRouter()
+
+processor = MessageProcessor()
 
 
 @router.post("/webhook")
 async def webhook(request: Request):
     payload = await request.json()
 
-    print("Webhook received:")
-    print(payload)
+    message = payload.get("message", "")
+
+    response = processor.process(message)
 
     return {
-        "status": "received"
+        "response": response
     }
