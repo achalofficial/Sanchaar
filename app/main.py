@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from app.routes.webhook import router as webhook_router
+from app.config import *
 
 app = FastAPI(
     title="Sanchaar",
