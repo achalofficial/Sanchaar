@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from app.routes.webhook import router as webhook_router
+from app.routes.voice import router as voice_router
 from app.config import *
 
 app = FastAPI(
@@ -8,6 +9,7 @@ app = FastAPI(
 )
 
 app.include_router(webhook_router)
+app.include_router(voice_router)
 
 @app.get("/")
 def root():
