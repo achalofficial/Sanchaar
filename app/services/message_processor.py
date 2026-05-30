@@ -1,4 +1,9 @@
+from app.agents.chat_agent import ChatAgent
+
 class MessageProcessor:
 
-    def process(self, message:str):
-        return f"Recieved {message}"
+    def __init__(self):
+        self.agent = ChatAgent()
+
+    def process(self, message: str) -> str:
+        return self.agent.respond(message)
