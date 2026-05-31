@@ -1,5 +1,9 @@
 import os
 
+import base64
+
+
+
 from sarvamai import SarvamAI
 from app.config import *
 
@@ -36,3 +40,22 @@ class SarvamClient:
         content = response.choices[0].message.content
 
         return remove_thinking(content)
+    
+
+    def synthesize(self, text: str, output_path: str):
+
+        response = self.client.text_to_speech.convert(
+            text=text,
+            target_language_code="hi-IN",
+            model="bulbul:v3",
+            temperature=0.2
+        )
+
+        audio_bytes = base64.b64decode(
+            response.audios[0]
+        )
+
+        with open(output_path, "wb") as f:
+            f.write(audio_bytes)
+
+        return output_path

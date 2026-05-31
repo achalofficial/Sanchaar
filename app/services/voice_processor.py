@@ -20,7 +20,15 @@ class VoiceProcessor:
             transcript
         )
 
+        output_path = "app/audio/response.wav"
+
+        self.stt.synthesize(
+            response,
+            output_path
+        )
+
         return {
             "transcript": transcript,
-            "response": response
+            "response": response,
+            "audio_file": output_path
         }
