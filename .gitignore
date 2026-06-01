@@ -26,3 +26,17 @@ htmlcov/
 
 # Logs
 *.log
+
+# Audio output files
+*.wav
+*.mp3
+app/audio/
+
+# Environment
+.env.local
+
+# OS
+Thumbs.db
+
+# IDE
+*.swp

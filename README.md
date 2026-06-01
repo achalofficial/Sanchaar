@@ -134,6 +134,18 @@ http://127.0.0.1:8000
 
 ---
 
+## Docker
+
+The recommended way to run Sanchaar for deployment:
+
+```bash
+docker-compose up --build
+```
+
+This builds the image and starts the server on port 8000. Ensure your `.env` file is present at the project root before running.
+
+---
+
 ## API Endpoints
 
 ### Health Check
